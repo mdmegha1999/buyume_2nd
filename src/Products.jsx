@@ -58,7 +58,7 @@ export default function Products() {
         <div key={i} className="Products-child">
         <li>Product Name: {item.name}</li>
         <li>Price: {item.price}</li>
-        <li>Quantity:{" "}<button onClick={()=> add_pro(i)}>+</button>{" "}
+        <li>{" "}<button onClick={()=> add_pro(i)}>+</button>{" "}
         {item.quantity}{" "}
         <button onClick={()=> less_pro(i)}>-</button>{""}
         </li>
