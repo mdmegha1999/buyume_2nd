@@ -7,8 +7,8 @@ export default function Cart(props) {
   };
   return (
     <div className="cart-parent">
+      <h1>Cart</h1>
       <div className="cart">
-        Cart
         {props.cart.map((item, i) => (
           <div key={i} className="cart-child">
             <li>Product Name:{item.name}</li>
@@ -18,21 +18,23 @@ export default function Cart(props) {
         ))}
       </div>
       <div className="Final-Bill">
-      <h1>Total</h1>
-        <h2>Rs {bill.reduce((i, j) => i + j, 0)}</h2>
-        <button
-          style={{
-            backgroundColor: "blue",
-            color: "white",
-            padding: "10px 20px",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-          onClick={handlePayNow}
-        >
-          Pay Now
-        </button>
+        <h2>Total Amount</h2>
+        <h2>
+          Rs {bill.reduce((i, j) => i + j, 0)}
+          <button
+            style={{
+              backgroundColor: "blue",
+              color: "white",
+              padding: "10px 20px",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer"
+            }}
+            onClick={handlePayNow}
+          >
+            Pay Now
+          </button>
+        </h2>
       </div>
     </div>
   );

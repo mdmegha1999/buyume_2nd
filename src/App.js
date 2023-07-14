@@ -1,11 +1,15 @@
-import './App.css';
-import Products from './Products';
+import "./App.css";
+import Products from "./Products";
 
 function App() {
   return (
     <div className="App">
-    <h1 className='header'>Products Card</h1>
-      <Products/>
+      <header className="header">
+        <h1>Products Cart</h1>
+      </header>
+      <main>
+        <Products />
+      </main>
     </div>
   );
 }
