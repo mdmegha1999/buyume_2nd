@@ -1,0 +1,79 @@
+.header{
+    background-color: antiquewhite;
+}
+.Products{
+    width: 100%;
+    color: white;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-between;
+}
+li{
+    padding: 5px;
+}
+.addbtn{
+    margin-top: 6px;
+    padding: 10px;
+    background-color: rgb(2, 39, 2);
+    border: none;
+    color: white;
+}
+button{
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(202, 215, 215);
+    border: none;
+}
+.cart{
+    font-family: sans-serif;
+    width: 500px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0 2px 8px #4c4c4c;
+    margin: 5px;
+    flex-direction: column;
+}
+.cart-child{
+    background-color: rgb(73, 99, 11);
+    color: white;
+    margin: 10px;
+}
+.cart-parent{
+    display: flex;
+    flex-direction: row;
+    color: black;
+    width:80%;
+    background-color: lightgrey;
+    
+}
+.Final-Bill{
+    background-color: lightgrey;
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+    font-family: sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    box-shadow: 0 2px 8px #4c4c4c;
+    flex-direction: column;
+}
+.Products-child{
+    background-color: rgb(133, 163, 133);
+    margin: 10px;
+    height: 150px;
+    width: 130%;
+    padding: 15px;
+    font-family: sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px #2e2c2c;
+    flex-direction: column;
+}
