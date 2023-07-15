@@ -5,6 +5,12 @@ export default function Cart(props) {
   const handlePayNow = () => {
     alert("Thank you for ordering the product!");
   };
+  const handleRemove = (itemId) => {
+    const updatedCart = props.cart.filter((item) => item.id !== itemId);
+    props.setCart(updatedCart);
+    props.resetProductQuantity(itemId);
+
+  };
   return (
     <div className="cart-parent">
       <h1>Cart</h1>
@@ -14,6 +20,8 @@ export default function Cart(props) {
             <li>Product Name:{item.name}</li>
             <li>Quantity: {item.quantity}</li>
             <li>Price: {item.price * item.quantity}</li>
+            <button onClick={() => handleRemove(item.id)}>Remove</button>
+
           </div>
         ))}
       </div>
