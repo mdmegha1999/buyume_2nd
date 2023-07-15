@@ -33,7 +33,6 @@ export default function Products() {
     const updatedProducts = [...Products];
     if (updatedProducts[index].quantity > 1) {
       updatedProducts[index].quantity -= 1;
-      updatedProducts[itemIndex].addedToCart = false; // Reset the addedToCart property
       setProducts(updatedProducts);
     }
   };
@@ -42,6 +41,7 @@ export default function Products() {
     const itemIndex = updatedProducts.findIndex((item) => item.id === itemId);
     if (itemIndex !== -1) {
       updatedProducts[itemIndex].quantity = 1;
+      updatedProducts[itemIndex].addedToCart = false; // Reset the addedToCart property
       setProducts(updatedProducts);
     }
   };
