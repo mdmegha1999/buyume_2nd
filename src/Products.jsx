@@ -36,6 +36,14 @@ export default function Products() {
       setProducts(updatedProducts);
     }
   };
+   const resetProductQuantity = (itemId) => {
+    const updatedProducts = [...Products];
+    const itemIndex = updatedProducts.findIndex((item) => item.id === itemId);
+    if (itemIndex !== -1) {
+      updatedProducts[itemIndex].quantity = 1;
+      setProducts(updatedProducts);
+    }
+  };
 
   const addToCart = (obj) => {
     if (cart.includes(obj)) {
@@ -65,7 +73,13 @@ export default function Products() {
         ))}
       </div>
       <div>
-        <Cart cart={cart} />
+        <Cart
+          cart={cart}
+          setCart={setCart}
+          resetProductQuantity={resetProductQuantity}
+          // showAddToCartButton={showAddToCartButton};
+
+        />
       </div>
     </div>
   );
