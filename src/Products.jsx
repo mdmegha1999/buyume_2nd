@@ -33,6 +33,7 @@ export default function Products() {
     const updatedProducts = [...Products];
     if (updatedProducts[index].quantity > 1) {
       updatedProducts[index].quantity -= 1;
+      updatedProducts[itemIndex].addedToCart = false; // Reset the addedToCart property
       setProducts(updatedProducts);
     }
   };
@@ -49,6 +50,12 @@ export default function Products() {
     if (cart.includes(obj)) {
       alert("Already added to cart");
     } else {
+      const updatedProducts = [...Products];
+      const itemIndex = updatedProducts.findIndex((item) => item.id === obj.id);
+      if (itemIndex !== -1) {
+        updatedProducts[itemIndex].addedToCart = true; // Set addedToCart to true
+        setProducts(updatedProducts);
+      }
       setCart([...cart, obj]);
     }
   };
@@ -66,9 +73,11 @@ export default function Products() {
               <button onClick={() => less_pro(i)}>-</button>
               {""}
             </li>
+            {!item.addedToCart && (
             <button className="addbtn" onClick={() => addToCart(item)}>
               Add to Cart
             </button>
+            )}
           </div>
         ))}
       </div>
@@ -77,8 +86,6 @@ export default function Products() {
           cart={cart}
           setCart={setCart}
           resetProductQuantity={resetProductQuantity}
-          // showAddToCartButton={showAddToCartButton};
-
         />
       </div>
     </div>
