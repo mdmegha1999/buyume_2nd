@@ -1,49 +1,40 @@
 import React from "react";
 
 export default function Cart(props) {
-  let bill = props.cart.map((item, i) => item.price * item.quantity);
-  const handlePayNow = () => {
-    alert("Thank you for ordering the product!");
-  };
-  const handleRemove = (itemId) => {
-    const updatedCart = props.cart.filter((item) => item.id !== itemId);
-    props.setCart(updatedCart);
-    props.resetProductQuantity(itemId);
+  const { cart, removeProduct, add_pro, less_pro } = props;
+  let bill = cart.map((item, i) => item.price * item.quantity).reduce((i, j) => i + j, 0)
 
-  };
   return (
     <div className="cart-parent">
       <h1>Cart</h1>
       <div className="cart">
-        {props.cart.map((item, i) => (
+        {cart.map((item, i) => (
           <div key={i} className="cart-child">
             <li>Product Name:{item.name}</li>
             <li>Quantity: {item.quantity}</li>
             <li>Price: {item.price * item.quantity}</li>
-            <button onClick={() => handleRemove(item.id)}>Remove</button>
+
+            {item.quantity == 1 ? <button onClick={() => removeProduct(item.id)} style={{ background: 'red', color: 'white' }}>Remove</button> : null}
+            {item.quantity > 1 ? <button onClick={() => less_pro(item)} >-</button> : null}
+            <span > {item.quantity || 0}</span>
+            <button onClick={() => add_pro(item)} >+</button>
+            {item.quantity > 1 ? <button onClick={() => removeProduct(item.id)} style={{ background: 'red', color: 'white' }}>Remove</button> : null}
 
           </div>
         ))}
       </div>
-      <div className="Final-Bill">
+      {cart.length > 0 ? <div className="Final-Bill">
         <h2>Total Amount</h2>
         <h2>
-          Rs {bill.reduce((i, j) => i + j, 0)}
+          Rs {bill}
           <button
-            style={{
-              backgroundColor: "blue",
-              color: "white",
-              padding: "10px 20px",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer"
-            }}
-            onClick={handlePayNow}
+            onClick={() => alert('thanks for your order')}
           >
             Pay Now
           </button>
         </h2>
       </div>
-    </div>
+        : 'No products in your cart !'}
+    </div >
   );
 }
